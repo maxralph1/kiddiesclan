@@ -1,11 +1,1920 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+// import Welcome from '../components/Welcome.astro'
+import Layout from '../layouts/Layout.astro'
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+// <Layout>
+// 	<Welcome />
+// </Layout>
+const companyName = 'KiddiesClan'
 ---
 
+<style>
+  /* Utility */
+  .dark-button {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #f5f5f5;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 35px;
+    text-decoration: none;
+    text-align: center;
+    padding-inline: 0.7rem;
+    padding-block: 0.3rem;
+    transition: all 1s ease-in-out;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    &.get-started {
+      padding-block: 0.45rem;
+      font-size: 0.87rem;
+      font-weight: 700;
+    }
+  }
+
+  .light-button {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #f5f5f5;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 35px;
+    text-decoration: none;
+    text-align: center;
+    padding-inline: 0.7rem;
+    padding-block: 0.3rem;
+    transition: all 1s ease-in-out;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    &.join-community {
+      padding-block: 0.45rem;
+      font-size: 0.87rem;
+      font-weight: 700;
+    }
+  }
+
+  .transparent-button {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #f5f5f5;
+    color: #000000;
+    border-radius: 35px;
+    text-decoration: none;
+    text-align: center;
+    padding-inline: 0.7rem;
+    padding-block: 0.3rem;
+    transition: all 1s ease-in-out;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    &.get-started {
+      padding-block: 0.45rem;
+      font-size: 0.87rem;
+      font-weight: 700;
+    }
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  .separator {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e4e7db;
+    margin-block: 1.25rem;
+  }
+  /* End of Utility */
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1rem;
+
+    h1 {
+      font-size: x-large;
+    }
+
+    .navigation {
+      position: relative;
+      font-size: 0.875rem;
+
+      .links {
+        position: absolute;
+        right: 0;
+        width: 8rem;
+        /* background-color: #ffffff; */
+        border-color: #f5f5f5;
+        padding-block: 1.5rem;
+        padding-top: 3rem;
+        border-radius: 10px;
+        box-shadow:
+          0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        /* display: flex; */
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+
+        #main-menu.nav-links {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          .nav-link {
+            text-decoration: none;
+          }
+        }
+
+        .talk {
+          text-wrap: nowrap;
+        }
+
+        .close {
+          align-self: end;
+          padding-inline: 0.5rem;
+          position: absolute;
+          top: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .hero {
+    margin-top: 2rem;
+    margin-inline: 1rem;
+    padding-block: 2rem;
+    padding-inline: 1rem;
+    border-radius: 15px;
+    background-color: #c4eb89;
+    display: grid;
+    grid-template-areas:
+      'hero-picture'
+      'hero-intro';
+
+    .intro {
+      grid-area: hero-intro;
+      text-align: center;
+
+      .header {
+        font-size: 1.75rem;
+      }
+
+      .details {
+      }
+
+      .actions {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    }
+
+    picture {
+      grid-area: hero-picture;
+
+      .hero-image {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  main {
+    margin-top: 4rem;
+    padding-inline: 1rem;
+
+    .childcare-philosophy {
+      h2 {
+        text-align: center;
+      }
+
+      .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .card {
+          flex: 1;
+          border-radius: 10px;
+          background-color: #f5f5f5;
+          padding-block: 0.25rem;
+          padding-inline: 0.25rem;
+          text-align: center;
+
+          picture {
+            img {
+            }
+          }
+
+          h3 {
+            margin-bottom: 0;
+            padding-bottom: 0.25rem;
+            padding-inline: 1rem;
+            font-size: 1rem;
+          }
+
+          p {
+            margin-top: 0;
+            padding-inline: 1rem;
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+
+    .nurturing-little-ones {
+      margin-top: 4rem;
+
+      h2 {
+        text-align: center;
+        padding-inline: 3rem;
+      }
+
+      .details {
+        text-align: center;
+      }
+
+      .nurture-services {
+        display: grid;
+        grid-template-areas:
+          'nurture-services-picture'
+          'nurture-services-list';
+
+        picture {
+          grid-area: nurture-services-picture;
+        }
+        ul {
+          grid-area: nurture-services-list;
+          list-style: none;
+          padding-left: 0;
+
+          li {
+            background-size: 1rem 1rem;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+          }
+
+          li:first-child {
+            background: url('/src/assets/images/kids-building.jpg') no-repeat;
+            background-size: 1rem 1rem;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+          }
+          li:nth-child(2) {
+            background: url('/src/assets/images/kids-building.jpg') no-repeat;
+            background-size: 1rem 1rem;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+          }
+          li:nth-child(3) {
+            background: url('/src/assets/images/kids-building.jpg') no-repeat;
+            background-size: 1rem 1rem;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
+    }
+
+    .services {
+      margin-top: 2.5rem;
+      background-color: #ebd451;
+      padding-block: 1.2rem;
+      padding-inline: 2rem;
+      border-radius: 20px;
+
+      .details {
+        font-size: 0.85rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .see-services {
+          text-wrap: nowrap;
+          font-size: 0.75rem;
+          display: inline-block;
+          padding-block: 0.5rem;
+        }
+      }
+
+      .services-list {
+        display: grid;
+
+        ul {
+          order: 2;
+          list-style: none;
+          padding-left: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0.95rem;
+
+          li {
+            padding-block: 0.05rem;
+            padding-inline: 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+            h3 {
+              margin-bottom: 0;
+            }
+
+            p {
+              font-size: 0.85rem;
+              margin-top: 0.5rem;
+            }
+
+            &:hover {
+              background: #eeedd9;
+              backdrop-filter: unset;
+              -webkit-backdrop-filter: unset;
+            }
+          }
+        }
+
+        picture {
+          order: 1;
+
+          img {
+            align-self: center;
+          }
+        }
+      }
+    }
+
+    .safety-measures {
+      margin-top: 4rem;
+
+      h2,
+      p {
+        text-align: center;
+        padding-inline: 3rem;
+      }
+
+      .more-details {
+        display: grid;
+        gap: 0.5rem;
+
+        picture {
+        }
+
+        ul {
+          list-style: none;
+          padding-left: 0;
+          background-color: #c4eb8994;
+          padding: 1rem;
+          border-radius: 15px;
+          font-size: 0.85rem;
+          font-weight: 500;
+
+          li {
+            background: url('/src/assets/images/kids-building.jpg') no-repeat;
+            background-size: 1rem 1rem;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+          }
+        }
+
+        .first-aid {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1.25rem;
+
+          .details {
+            background-color: #ebd45193;
+            padding-block: 1rem;
+            padding-inline: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 12.5rem;
+            /* min-width: 12rem; */
+            border-radius: 15px;
+            text-align: center;
+          }
+
+          .image {
+            height: 5rem;
+            /* width: 12.5rem; */
+            width: 100%;
+            padding: 0;
+
+            img {
+              height: 100%;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .pricing {
+      margin-top: 4rem;
+
+      h2,
+      p {
+        text-align: center;
+      }
+
+      p {
+        font-size: 0.85rem;
+      }
+
+      .plan-details {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding-top: 1.25rem;
+
+        .plans {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          .plan {
+            background-color: #e4e7db;
+            padding: 1rem;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            h3,
+            span {
+              font-size: 0.85rem;
+            }
+
+            h3 {
+              text-wrap: nowrap;
+
+              .save {
+                margin-left: 0.2rem;
+                padding-inline: 0.2rem;
+                font-size: 0.65rem;
+                font-weight: 500;
+                border-radius: 12px;
+                border: 1px solid rgb(255, 255, 255);
+                background: rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+              }
+            }
+
+            span {
+              text-align: end;
+
+              .price {
+                font-size: 1.5rem;
+                font-weight: 700;
+              }
+
+              .time {
+                font-size: 0.7rem;
+                font-weight: 400;
+              }
+            }
+
+            &.active {
+              background-color: #c4eb89;
+            }
+          }
+        }
+
+        .details {
+          article {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition:
+              opacity 300ms ease,
+              transform 300ms ease;
+
+            &.active {
+              background-color: #e4e7db;
+              padding-inline: 1rem;
+              padding-block: 2rem;
+              border-radius: 15px;
+              display: flex;
+              flex-direction: column;
+              gap: 0;
+              opacity: 1;
+              transform: translateY(0);
+              pointer-events: auto;
+
+              h4 {
+                margin-block: 0;
+              }
+
+              ul {
+                list-style: none;
+                padding-left: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+
+                li {
+                  font-size: 0.85rem;
+                  background: url('/src/assets/images/kids-building.jpg')
+                    no-repeat;
+                  background-size: 1rem 1rem;
+                  padding-left: 1.5rem;
+                  margin-bottom: 0.5rem;
+                }
+              }
+
+              .action {
+                margin-top: 0.75rem;
+                width: 100%;
+                align-self: stretch;
+                font-size: 0.75rem;
+
+                .select {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .reviews {
+      margin-top: 4rem;
+      background-color: #e4e7db;
+      border-radius: 15px;
+      padding: 1rem;
+      display: grid;
+
+      .intro {
+        order: 1;
+
+        p {
+          font-size: 0.85rem;
+        }
+      }
+
+      .client-reviews {
+        order: 3;
+        padding-top: 1.05rem;
+        padding-bottom: 0.5rem;
+
+        .client-reviews-slide {
+          position: relative;
+          height: auto;
+          min-height: 3rem;
+
+          .client-review {
+            font-weight: 600;
+            display: none;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+
+            &.active {
+              display: block;
+            }
+          }
+        }
+
+        .client-review-navigator {
+          padding-top: 1rem;
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+
+          .left,
+          .right {
+            display: flex;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .client {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        padding-top: 1.5rem;
+        padding-bottom: 0.35rem;
+
+        .name {
+          order: 2;
+          align-self: center;
+          text-align: center;
+
+          h3 {
+            margin-bottom: 0;
+          }
+          span {
+            font-size: 0.8rem;
+          }
+        }
+        img {
+          order: 1;
+          width: 150px;
+          height: 175px;
+          align-self: center;
+        }
+      }
+    }
+
+    .parting-note {
+      margin-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .logo {
+        img {
+        }
+      }
+
+      .details {
+        p {
+          font-size: 0.85rem;
+        }
+        .actions {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+
+  footer {
+    margin-block: 3rem;
+    margin-bottom: 3rem;
+    margin-inline: 2rem;
+    background-color: #c4eb89;
+    border-radius: 35px;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+      row-gap: 1.25rem;
+      padding-bottom: 1rem;
+
+      a {
+        text-decoration: none;
+        font-size: 0.85rem;
+      }
+    }
+
+    .copyright {
+      font-size: 0.85rem;
+
+      .company {
+        font-weight: 600;
+      }
+    }
+
+    .social {
+      padding-top: 0.85rem;
+      display: flex;
+      gap: 1rem;
+      margin-inline: auto;
+    }
+  }
+
+  @media screen and (min-width: 776px) {
+    header {
+      .navigation {
+        .links {
+          position: relative;
+          right: unset;
+          width: unset;
+          border-color: #f5f5f5;
+          padding-block: 0;
+          padding-top: 0;
+          border-radius: unset;
+          box-shadow: unset;
+          display: flex;
+          flex-direction: row;
+
+          #main-menu.nav-links {
+            /* display: flex; */
+            flex-direction: row;
+
+            .nav-link {
+              border-width: 1px;
+              border-style: solid;
+              border-color: #d7dbc9;
+              padding-block: 0.35rem;
+              padding-inline: 0.5rem;
+              border-radius: 25px;
+            }
+          }
+
+          .talk {
+          }
+
+          .close {
+            display: none;
+          }
+        }
+
+        .menu-icon {
+          display: none;
+        }
+      }
+    }
+
+    .hero {
+      /* display: grid; */
+      grid-template-areas: 'hero-intro hero-picture';
+      align-items: center;
+      column-gap: 1.5rem;
+
+      .intro {
+        .header {
+        }
+        .details {
+        }
+        .actions {
+        }
+      }
+
+      picture {
+        .hero-image {
+        }
+      }
+    }
+
+    main {
+      .childcare-philosophy {
+        h2 {
+          text-align: start;
+        }
+
+        .cards {
+          /* display: flex; */
+          flex-direction: row;
+
+          .card {
+            h3 {
+            }
+            p {
+            }
+          }
+        }
+      }
+
+      .nurturing-little-ones {
+        h2 {
+        }
+
+        .details {
+        }
+
+        .nurture-services {
+          display: grid;
+          grid-template-areas: 'nurture-services-picture nurture-services-list';
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+          column-gap: 3rem;
+
+          picture {
+          }
+          ul {
+            li {
+            }
+            li:first-child {
+            }
+            li:nth-child(2) {
+            }
+            li:nth-child(3) {
+            }
+          }
+        }
+      }
+
+      .services {
+        .details {
+          display: flex;
+          align-items: center;
+          column-gap: 8rem;
+
+          .see-services {
+          }
+        }
+
+        .services-list {
+          /* display: grid; */
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+          column-gap: 2rem;
+
+          ul {
+            order: 1;
+
+            li {
+              h3 {
+              }
+              p {
+              }
+            }
+          }
+
+          picture {
+            order: 2;
+
+            img {
+              min-height: 475px;
+            }
+          }
+        }
+      }
+
+      .safety-measures {
+        h2,
+        p {
+        }
+
+        .more-details {
+          /* display: grid; */
+          grid-template-columns: 4fr 4fr 3fr;
+          align-items: center;
+          gap: 1.5rem;
+
+          picture {
+          }
+
+          ul {
+            li {
+            }
+          }
+
+          .first-aid {
+            .details {
+              width: unset;
+            }
+
+            .image {
+              img {
+              }
+            }
+          }
+        }
+      }
+
+      .pricing {
+        h2,
+        p {
+        }
+
+        p {
+        }
+
+        .plan-details {
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content: center;
+          align-items: center;
+          gap: 2rem;
+
+          .plans {
+            .plan {
+              h3,
+              span {
+              }
+
+              h3 {
+                .save {
+                }
+              }
+
+              span {
+                .price {
+                }
+
+                .time {
+                }
+              }
+
+              &.active {
+              }
+            }
+          }
+
+          .details {
+            article {
+              &.active {
+                h4 {
+                }
+
+                ul {
+                  li {
+                  }
+                }
+
+                .action {
+                  .select {
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .reviews {
+        display: grid;
+        grid-template-columns: 4fr 5fr 2fr;
+        align-items: center;
+
+        .intro {
+          order: 1;
+          /* align-self: start; */
+
+          p {
+            font-size: 0.85rem;
+          }
+        }
+
+        .client-reviews {
+          order: 2;
+          padding-top: 0rem;
+          padding-bottom: 0.5rem;
+
+          .client-reviews-slide {
+            position: relative;
+            height: auto;
+            min-height: 5rem;
+
+            .client-review {
+              &.active {
+              }
+            }
+          }
+
+          .client-review-navigator {
+            padding-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+
+            .left,
+            .right {
+              display: flex;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .client {
+          order: 3;
+
+          .name {
+            h3 {
+            }
+            span {
+            }
+          }
+          img {
+          }
+        }
+      }
+    }
+
+    footer {
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      /* row-gap: 1rem; */
+
+      nav {
+        /* display: flex; */
+        flex-direction: row;
+        align-items: center;
+        column-gap: 1.25rem;
+        padding-bottom: 0;
+
+        a {
+        }
+      }
+
+      .copyright {
+        .company {
+        }
+      }
+
+      .social {
+        padding-top: 0;
+        /* display: flex; */
+        justify-content: end;
+        margin-inline: unset;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    header {
+      .navigation {
+        .links {
+          #main-menu.nav-links {
+            .nav-link {
+            }
+          }
+
+          .talk {
+          }
+
+          .close {
+          }
+        }
+
+        .menu-icon {
+        }
+      }
+    }
+
+    .hero {
+      .intro {
+        .header {
+        }
+        .details {
+        }
+        .actions {
+        }
+      }
+
+      picture {
+        .hero-image {
+        }
+      }
+    }
+
+    main {
+      .childcare-philosophy {
+        h2 {
+        }
+
+        .cards {
+          .card {
+            h3 {
+            }
+            p {
+            }
+          }
+        }
+      }
+
+      .nurturing-little-ones {
+        h2 {
+        }
+
+        .details {
+        }
+
+        .nurture-services {
+          picture {
+          }
+          ul {
+            li {
+            }
+            li:first-child {
+            }
+            li:nth-child(2) {
+            }
+            li:nth-child(3) {
+            }
+          }
+        }
+      }
+
+      .services {
+        .details {
+        }
+
+        .see-services {
+        }
+
+        .services-list {
+          ul {
+            li {
+              h3 {
+              }
+
+              p {
+              }
+
+              &:hover {
+              }
+            }
+          }
+
+          picture {
+            img {
+              min-height: 440px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* @media (prefers-color-scheme: dark) {
+    body {
+      background: #111;
+      color: #eee;
+    }
+
+    .theme-aware-color { color: #f5f5f5; }
+  } */
+</style>
+
 <Layout>
-	<Welcome />
+  <header>
+    <h1>{companyName}</h1>
+
+    <div class='navigation'>
+      <div class='links'>
+        <nav id='main-menu' class='nav-links'>
+          <a href='/' class='nav-link theme-aware-color'>Home</a>
+          <a href='/about/' class='nav-link theme-aware-color'>About</a>
+          <a href='/services/' class='nav-link theme-aware-color'>Services</a>
+          <a href='/process/' class='nav-link theme-aware-color'>Process</a>
+          <a href='/pricing/' class='nav-link theme-aware-color'>Pricing</a>
+          <a href='/blog/' class='nav-link theme-aware-color'>Blog</a>
+        </nav>
+        <a href='#' class='talk dark-button'>Let's Talk</a>
+        <span class='close cursor-pointer'>
+          <svg
+            class='w-6 h-6 text-gray-800 dark:text-white'
+            aria-hidden='true'
+            xmlns='http://www.w3.org/2000/svg'
+            width='24'
+            height='24'
+            fill='#ff0000'
+            viewBox='0 0 24 24'
+          >
+            <path
+              fill-rule='evenodd'
+              d='M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm5.757-1a1 1 0 1 0 0 2h8.486a1 1 0 1 0 0-2H7.757Z'
+              clip-rule='evenodd'></path>
+          </svg>
+        </span>
+      </div>
+      <span class='menu-icon cursor-pointer'>
+        <svg
+          class='w-6 h-6 text-gray-800 dark:text-white'
+          aria-hidden='true'
+          xmlns='http://www.w3.org/2000/svg'
+          width='24'
+          height='24'
+          fill='none'
+          viewBox='0 0 24 24'
+        >
+          <path
+            stroke='currentColor'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
+            d='M18 6h-8m8 4H6m12 4h-8m8 4H6'></path>
+        </svg>
+      </span>
+    </div>
+  </header>
+
+  <section class='hero'>
+    <div class='intro'>
+      <h2 class='header'>
+        Tender, Professional Care for Your Precious, Little Ones
+      </h2>
+
+      <div class='details'>
+        <p>
+          We&nbsp;<span>connect you&nbsp;</span>with nurturing caregivers to
+          ensure your child feels&nbsp;<span>and is&nbsp;</span>safe and loved
+          moment.
+        </p>
+        <p>
+          How can we guarantee this?&nbsp;<span
+            >By various very strict checks we put in place, hiring and
+            on-the-job.</span
+          >
+        </p>
+      </div>
+
+      <div class='actions'>
+        <a href='#' class='get-started dark-button'>Get Started</a>
+        <a href='' class='join-community light-button'>Join Our Community</a>
+      </div>
+    </div>
+
+    <picture class='hero-picture'>
+      <img
+        src='/src/assets/images/kids-building.jpg'
+        alt='Hero Image'
+        class='hero-image'
+      />
+    </picture>
+  </section>
+
+  <main>
+    <section class='childcare-philosophy'>
+      <h2>Childcare Philosophy</h2>
+
+      <section class='cards'>
+        <article class='card'>
+          <picture>
+            <source
+              srcset='small.jpg 480w, /src/assets/images/kids-building.jpg 800w, /src/assets/images/kids-building.jpg 1200w'
+              sizes='(max-width: 600px) 400px, 800px'
+              type='image/jpeg'
+            />
+            <img
+              src='/src/assets/images/kids-building.jpg'
+              alt='ChildCare Philosophy Image 1'
+            />
+          </picture>
+
+          <div>
+            <h3>Care Beyond Comfort</h3>
+            <p>Focus on emotional bonding and security.</p>
+          </div>
+        </article>
+        <article class='card'>
+          <picture>
+            <source
+              srcset='small.jpg 480w, /src/assets/images/kids-building.jpg 800w, /src/assets/images/kids-building.jpg 1200w'
+              sizes='(max-width: 600px) 400px, 800px'
+              type='image/jpeg'
+            />
+            <img
+              src='/src/assets/images/kids-building.jpg'
+              alt='ChildCare Philosophy Image 2'
+            />
+          </picture>
+
+          <div>
+            <h3>Growth and Play</h3>
+            <p>
+              Activities designed to engage and stimulate your child's
+              development.
+            </p>
+          </div>
+        </article>
+        <article class='card'>
+          <picture>
+            <source
+              srcset='small.jpg 480w, /src/assets/images/kids-building.jpg 800w, /src/assets/images/kids-building.jpg 1200w'
+              sizes='(max-width: 600px) 400px, 800px'
+              type='image/jpeg'
+            />
+            <img
+              src='/src/assets/images/kids-building.jpg'
+              alt='ChildCare Philosophy Image 3'
+            />
+          </picture>
+
+          <div>
+            <h3>Family Integration</h3>
+            <p>
+              Tailoring care routines to match your family's values and
+              lifestyle.
+            </p>
+          </div>
+        </article>
+      </section>
+    </section>
+
+    <section class='nurturing-little-ones'>
+      <h2>Dedicated to Nurturing Your Little ones with Expert Care</h2>
+
+      <div class='details'>
+        <p>
+          At {companyName}, we are committed to providing more than just baby
+          care — we deliver peace of mind for parents and a nurturing
+          environment for children. Our team of professional caregivers are
+          carefully selected based on their experience, training and genuine
+          love for children.
+        </p>
+
+        <p>Book a session with us to learn the details of this.</p>
+      </div>
+
+      <div class='separator'></div>
+
+      <div class='nurture-services'>
+        <picture>
+          <source
+            srcset='small.jpg 480w, /src/assets/images/kids-building.jpg 800w, /src/assets/images/kids-building.jpg 1200w'
+            sizes='(max-width: 600px) 400px, 800px'
+            type='image/jpeg'
+          />
+          <img
+            src='/src/assets/images/kids-building.jpg'
+            alt='ChildCare Philosophy Image 3'
+          />
+        </picture>
+
+        <ul>
+          <li>
+            <h3>Newborn and Infant Care:</h3>
+            <p>
+              Helping parents/guardinas with feeding schedules, safe sleep
+              practices and early development milestones.
+            </p>
+          </li>
+          <li>
+            <h3>Toddler Engagement:</h3>
+            <p>
+              Promoting motor skills, creativity and cognitive growth through
+              fun and educational activities.
+            </p>
+          </li>
+          <li>
+            <h3>Flexible Care Options:</h3>
+            <p>
+              Whether you need a full-time caregiver, part-time-support,
+              last-minute babycaring, we tailor our services to fill your
+              family's unique needs.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class='services'>
+      <h2>What we offer</h2>
+
+      <div class='details'>
+        <p>
+          We offer a range of specialized babycaring services to support
+          families at every stage of their child's growth.
+        </p>
+        <a href='#' class='see-services dark-button'>See All Services</a>
+      </div>
+
+      <div class='separator'></div>
+
+      <section class='services-list'>
+        <ul>
+          <li>
+            <h3>Newborn Care</h3>
+            <p>
+              Expert caregivers trained to assist with feeding, diaper changes,
+              sleep routines, and creating a soothing environment for your baby.
+            </p>
+          </li>
+          <li>
+            <h3>On-Demand Babycare</h3>
+            <p>
+              Flexible care for thjose unexpected moments when you need reliable
+              support at short notice.
+            </p>
+          </li>
+          <li>
+            <h3>Nighttime Nannying</h3>
+            <p>
+              Reliable overnight care to help your family get much needed rest
+              while ensuring your child is well tended thoughout the night.
+            </p>
+          </li>
+          <li>
+            <h3>Full-Time and Part-Time Care</h3>
+            <p>
+              Customized schedules to meet your family's long-term or daily
+              caregiving needs.
+            </p>
+          </li>
+        </ul>
+
+        <picture>
+          <source
+            srcset='small.jpg 480w, /src/assets/images/kids-building.jpg 800w, /src/assets/images/kids-building.jpg 1200w'
+            sizes='(max-width: 600px) 400px, 800px'
+            type='image/jpeg'
+          />
+          <img
+            src='/src/assets/images/kids-building.jpg'
+            alt='ChildCare Philosophy Image 3'
+          />
+        </picture>
+      </section>
+    </section>
+
+    <section class='safety-measures'>
+      <h2>Safety Measures</h2>
+
+      <p>
+        We know that nothing is more important than your child's (children's)
+        safety and well-being. That's why we've implemented rigorous measures to
+        ensure every nanny on our platform is qualified.
+      </p>
+
+      <div class='separator'></div>
+
+      <section class='more-details'>
+        <picture>
+          <source
+            srcset='small.jpg 480w, /src/assets/images/kids-building.jpg 800w, /src/assets/images/kids-building.jpg 1200w'
+            sizes='(max-width: 600px) 400px, 800px'
+            type='image/jpeg'
+          />
+          <img
+            src='/src/assets/images/kids-building.jpg'
+            alt='ChildCare Philosophy Image 3'
+          />
+        </picture>
+
+        <ul>
+          <li>Comprehensive background checks</li>
+          <li>Verified certifications</li>
+          <li>Continuous safety education</li>
+          <li>Verified reviews and ratings</li>
+          <li>Secure and easy communication</li>
+          <li>And other in-house measures</li>
+        </ul>
+
+        <div class='first-aid'>
+          <div class='details'>
+            <svg
+              class='w-6 h-6 text-gray-800 dark:text-white'
+              aria-hidden='true'
+              xmlns='http://www.w3.org/2000/svg'
+              width='24'
+              height='24'
+              fill='#e9d451'
+              viewBox='0 0 24 24'
+            >
+              <path
+                fill-rule='evenodd'
+                d='M8 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1h2a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2Zm6 1h-4v2H9a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2h-1V4Zm-6 8a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Zm1 3a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z'
+                clip-rule='evenodd'></path>
+            </svg>
+            <span>First-aid and CPR-certified Babycare</span>
+          </div>
+          <div class='image'>
+            <img
+              src='/src/assets/images/kids-building.jpg'
+              alt='ChildCare Philosophy Image 3'
+            />
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class='pricing'>
+      <h2>Pricing that fits your family</h2>
+
+      <p>
+        Explore all our plans today and find the perfect solution for your
+        family's childcare needs.
+      </p>
+
+      <section class='plan-details'>
+        <section class='plans'>
+          <article class='plan active'>
+            <h3>Hourly plan&nbsp;<span class='save'>Save 20%</span></h3>
+            <span>
+              <span class='price'>$20/&nbsp;<span class='time'>hour</span></span
+              >
+            </span>
+          </article>
+          <article class='plan'>
+            <h3>Weekly plan&nbsp;<span class='save'>Save 20%</span></h3>
+            <span>
+              <span class='price'
+                >$150/&nbsp;<span class='time'>week</span></span
+              >
+            </span>
+          </article>
+          <article class='plan'>
+            <h3>Custom plans&nbsp;<span class='save'>Save 40%</span></h3>
+            <span>
+              <span class=''>starting from&nbsp;</span>
+              <span class='price'>
+                $700/&nbsp;<span class='time'>long-term</span>
+              </span>
+            </span>
+          </article>
+        </section>
+
+        <div class='details'>
+          <article class='active'>
+            <h4>Up to 20 hours of Babycare per week.</h4>
+
+            <ul>
+              <li>Discounted hourly rates for regular.</li>
+              <li>Flexivle scheduling.</li>
+              <li>Personal babycare matching.</li>
+            </ul>
+
+            <div class='action'>
+              <a href='#' class='transparent-button select'>Get Started</a>
+            </div>
+          </article>
+          <article>
+            <h4>Up to 10 hours of Babycare per week.</h4>
+
+            <ul>
+              <li>Discounted hourly rates for regular.</li>
+              <li>Flexivle scheduling.</li>
+              <li>Personal babycare matching.</li>
+            </ul>
+
+            <div class='action'>
+              <a href='#' class='transparent-button select'>Get Started</a>
+            </div>
+          </article>
+          <article>
+            <h4>Up to 5 hours of Babycare per week.</h4>
+
+            <ul>
+              <li>Discounted hourly rates for regular.</li>
+              <li>Flexivle scheduling.</li>
+              <li>Personal babycare matching.</li>
+            </ul>
+
+            <div class='action'>
+              <a href='#' class='transparent-button select'>Get Started</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section id='reviews' class='reviews'>
+      <div class='intro'>
+        <h2>Trusted by parents like you</h2>
+
+        <p>
+          Explore all our plans today and find the perfect solution for your
+          family's childcare needs.
+        </p>
+      </div>
+
+      <div class='client-reviews'>
+        <section class='client-reviews-slide'>
+          <article class='client-review active'>
+            <q>
+              My son always lights up when he sees his nanny. Knowing he's in
+              such loving hands lets me focus on my work without distractions.
+            </q>
+          </article>
+          <article class='client-review'>
+            <q> My daughter is all smiles when she sees her nanny. </q>
+          </article>
+        </section>
+
+        <div class='client-review-navigator'>
+          <span class='left light-button'>
+            <svg
+              class='w-6 h-6 text-gray-800 dark:text-white'
+              aria-hidden='true'
+              xmlns='http://www.w3.org/2000/svg'
+              width='24'
+              height='24'
+              fill='none'
+              viewBox='0 0 24 24'
+            >
+              <path
+                stroke='currentColor'
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M5 12h14M5 12l4-4m-4 4 4 4'
+              >
+              </path>
+            </svg>
+          </span>
+          <span class='right light-button'>
+            <svg
+              class='w-6 h-6 text-gray-800 dark:text-white'
+              aria-hidden='true'
+              xmlns='http://www.w3.org/2000/svg'
+              width='24'
+              height='24'
+              fill='none'
+              viewBox='0 0 24 24'
+            >
+              <path
+                stroke='currentColor'
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M19 12H5m14 0-4 4m4-4-4-4'></path>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div class='client'>
+        <div class='name'>
+          <h3>Jane Cooper</h3>
+          <span>Parent</span>
+        </div>
+        <img
+          src='/src/assets/images/kids-building.jpg'
+          alt='ChildCare Philosophy Image 3'
+        />
+      </div>
+    </section>
+
+    <section class='parting-note'>
+      <div class='logo'>
+        <img src='#' alt='Brand logo' />
+      </div>
+
+      <div class='details'>
+        <h2>Discover Babycare Made Easy for You</h2>
+
+        <p>
+          We're committed to providing your family with safe, reliable,
+          committed and loving childcare.
+        </p>
+
+        <div class='actions'>
+          <a href='#' class='get-started dark-button'>Get Started</a>
+          <a href='' class='join-community light-button'>Join Our Community</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <nav id='footer-menu' class='nav-links'>
+      <a href='/'>Home</a>
+      <a href='/about/'>About</a>
+      <a href='/services/'>Services</a>
+      <a href='/process/'>Process</a>
+      <a href='/pricing/'>Pricing</a>
+      <a href='/blog/'>Blog</a>
+    </nav>
+
+    <span class='copyright'>
+      Coypright&nbsp;&copy;&nbsp;2025.&nbsp;<span class='company'
+        >{companyName}</span
+      >
+    </span>
+
+    <section class='social'>
+      <a href='' class='facebook'>
+        <svg
+          class='w-6 h-6 text-gray-800 dark:text-white'
+          aria-hidden='true'
+          xmlns='http://www.w3.org/2000/svg'
+          width='16'
+          height='16'
+          fill='currentColor'
+          viewBox='0 0 24 24'
+        >
+          <path
+            fill-rule='evenodd'
+            d='M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z'
+            clip-rule='evenodd'></path>
+        </svg>
+      </a>
+      <a href='' class='instagram'>
+        <svg
+          class='w-6 h-6 text-gray-800 dark:text-white'
+          aria-hidden='true'
+          xmlns='http://www.w3.org/2000/svg'
+          width='16'
+          height='16'
+          fill='none'
+          viewBox='0 0 24 24'
+        >
+          <path
+            fill='currentColor'
+            fill-rule='evenodd'
+            d='M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z'
+            clip-rule='evenodd'></path>
+        </svg>
+      </a>
+    </section>
+  </footer>
+
+  <script is:client='load'>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.innerWidth >= 776) {
+        console.log('Screen size does not need mobile navigator.')
+      } else {
+        // =========================================================
+        // HEADER NAV (with smooth slide animation)
+        // =========================================================
+        const navIcon = document.querySelector('header .menu-icon')
+        const navLinks = document.querySelector('header .navigation .links')
+        const navClose = document.querySelector('header .navigation .close')
+
+        if (navLinks) {
+          // Start hidden
+          navLinks.style.display = 'none'
+          navLinks.style.opacity = '0'
+          navLinks.style.transform = 'translateY(-10px)'
+          navLinks.style.transition = 'all 300ms ease'
+        }
+
+        function openMenu() {
+          navLinks.style.display = 'flex'
+          requestAnimationFrame(() => {
+            navLinks.style.opacity = '1'
+            navLinks.style.transform = 'translateY(0)'
+          })
+        }
+
+        function closeMenu() {
+          navLinks.style.opacity = '0'
+          navLinks.style.transform = 'translateY(-10px)'
+          setTimeout(() => {
+            navLinks.style.display = 'none'
+          }, 250)
+        }
+
+        if (navIcon) navIcon.addEventListener('click', openMenu)
+        if (navClose) navClose.addEventListener('click', closeMenu)
+      }
+
+      // =========================================================
+      // REVIEW SLIDER WITH:
+      // - Fade animation
+      // - Auto slide
+      // - Manual prev/next
+      // - Touch / Swipe support
+      // =========================================================
+      const slides = document.querySelectorAll('.client-review')
+      const leftBtn = document.querySelector('.client-review-navigator .left')
+      const rightBtn = document.querySelector('.client-review-navigator .right')
+      const slider = document.querySelector('.client-reviews')
+
+      let currentSlide = 0
+      let intervalId = null
+
+      // Prepare the fade animation for all slides
+      slides.forEach((slide) => {
+        slide.style.opacity = '0'
+        slide.style.transition = 'opacity 600ms ease'
+        slide.style.position = 'absolute'
+        slide.style.left = '0'
+        slide.style.right = '0'
+      })
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.remove('active')
+          slide.style.opacity = i === index ? '1' : '0'
+          if (i === index) slide.classList.add('active')
+        })
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length
+        showSlide(currentSlide)
+      }
+
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length
+        showSlide(currentSlide)
+      }
+
+      function startAutoSlide() {
+        intervalId = setInterval(nextSlide, 4000)
+      }
+
+      function stopAutoSlide() {
+        clearInterval(intervalId)
+      }
+
+      // Manual buttons
+      if (rightBtn) {
+        rightBtn.addEventListener('click', function () {
+          stopAutoSlide()
+          nextSlide()
+          startAutoSlide()
+        })
+      }
+
+      if (leftBtn) {
+        leftBtn.addEventListener('click', function () {
+          stopAutoSlide()
+          prevSlide()
+          startAutoSlide()
+        })
+      }
+
+      // Hover pause
+      if (slider) {
+        slider.addEventListener('mouseenter', stopAutoSlide)
+        slider.addEventListener('mouseleave', startAutoSlide)
+      }
+
+      // =========================================================
+      // TOUCH / SWIPE SUPPORT
+      // =========================================================
+      let startX = 0
+      let endX = 0
+
+      if (slider) {
+        slider.addEventListener('touchstart', function (e) {
+          startX = e.touches[0].clientX
+        })
+
+        slider.addEventListener('touchend', function (e) {
+          endX = e.changedTouches[0].clientX
+          const diff = endX - startX
+
+          // Detect swipe threshold ~50px
+          if (Math.abs(diff) > 50) {
+            stopAutoSlide()
+            if (diff < 0)
+              nextSlide() // swipe left → next
+            else prevSlide() // swipe right → previous
+            startAutoSlide()
+          }
+        })
+      }
+
+      // =========================================================
+      // INITIALIZE
+      // =========================================================
+      showSlide(currentSlide)
+      startAutoSlide()
+
+      // =========================================================
+      // INTERACTIVE PRICING SECTION
+      // =========================================================
+
+      const planButtons = document.querySelectorAll('.pricing .plan')
+      const planDetails = document.querySelectorAll('.pricing .details article')
+
+      function activatePlan(index) {
+        // Remove active from all plans
+        planButtons.forEach((btn) => btn.classList.remove('active'))
+        // Remove active from all detail articles
+        planDetails.forEach((detail) => detail.classList.remove('active'))
+
+        // Activate selected
+        planButtons[index].classList.add('active')
+        planDetails[index].classList.add('active')
+      }
+
+      // function activatePlan(index) {
+      //   // Remove active from all plans
+      //   planButtons.forEach((btn) => btn.classList.remove('active'))
+
+      //   // Fade out all articles
+      //   planDetails.forEach((detail) => {
+      //     detail.classList.remove('active')
+      //   })
+
+      //   // Slight delay for smooth fade (prevents overlap)
+      //   setTimeout(() => {
+      //     planButtons[index].classList.add('active')
+      //     planDetails[index].classList.add('active')
+      //   }, 10) // small delay helps transition start correctly
+      // }
+
+      // Attach click events
+      planButtons.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+          activatePlan(index)
+        })
+      })
+    })
+  </script>
 </Layout>

@@ -1,0 +1,158 @@
+---
+// src/components/Pricing.astro
+---
+
+<section class="pricing">
+    <div class="container">
+        <h2 class="section-title">Pricing that fits your family</h2>
+        <p class="pricing-subtitle">Explore all our plans today and find the perfect solution for your family's childcare needs!</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Hourly Plan</h3>
+                    <div class="price">$20<span>/hour</span></div>
+                    <div class="save-badge">Save 20%</div>
+                </div>
+                <div class="pricing-features">
+                    <p>Up to 20 hours of Babycaring per week.</p>
+                    <ul>
+                        <li>Flexible scheduling</li>
+                        <li>On-demand care</li>
+                        <li>Perfect for occasional needs</li>
+                    </ul>
+                </div>
+                <a href="#" class="btn btn-primary">Get Started</a>
+            </div>
+        
+        <div class="pricing-card featured">
+            <div class="pricing-header">
+                <h3>Weekly Packages</h3>
+                <div class="price">$150<span>/week</span></div>
+                <div class="save-badge">Save 20%</div>
+            </div>
+            <div class="pricing-features">
+                <p>Discounted hourly rates for regular use.</p>
+                <ul>
+                    <li>Flexible scheduling</li>
+                    <li>Personal babycaring matching</li>
+                    <li>Consistent caregiver</li>
+                </ul>
+            </div>
+            <a href="#" class="btn btn-primary">Get Started</a>
+        </div>
+        
+        <div class="pricing-card">
+            <div class="pricing-header">
+                <h3>Custom Plans</h3>
+                <div class="price">$1000<span>/long-term</span></div>
+                <div class="save-badge">Save 40%</div>
+            </div>
+            <div class="pricing-features">
+                <p>Tailored solutions for your specific needs.</p>
+                <ul>
+                    <li>Full customization</li>
+                    <li>Dedicated caregiver</li>
+                    <li>Long-term commitment</li>
+                </ul>
+            </div>
+            <a href="#" class="btn btn-primary">Get Started</a>
+        </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .pricing {
+        padding: 4rem 0;
+        background-color: var(--gray-color);
+    }
+    
+    .pricing-subtitle {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 3rem;
+        color: #666;
+        font-size: 1.1rem;
+    }
+    
+    .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .pricing-card {
+        background: var(--light-color);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        position: relative;
+        transition: transform 0.3s ease;
+    }
+    
+    .pricing-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .pricing-card.featured {
+        border: 2px solid var(--secondary-color);
+        transform: scale(1.05);
+    }
+    
+    .pricing-header {
+        margin-bottom: 2rem;
+    }
+    
+    .pricing-header h3 {
+        color: var(--dark-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .price {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+    }
+    
+    .price span {
+        font-size: 1rem;
+        color: #666;
+    }
+    
+    .save-badge {
+        display: inline-block;
+        background: var(--primary-color);
+        color: var(--dark-color);
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+    
+    .pricing-features {
+        margin-bottom: 2rem;
+    }
+    
+    .pricing-features ul {
+        list-style: none;
+        text-align: left;
+    }
+    
+    .pricing-features li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .pricing-features li:before {
+        content: "✓";
+        color: var(--primary-color);
+        margin-right: 0.5rem;
+        font-weight: bold;
+    }
+</style>
