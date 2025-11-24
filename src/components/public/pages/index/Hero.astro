@@ -1,0 +1,122 @@
+---
+---
+
+<style>
+    .hero {
+        margin-top: 2rem;
+        margin-inline: 1.5rem;
+        padding-block: 2rem;
+        padding-inline: 1rem;
+        border-radius: 15px;
+        background-color: #c4eb89;
+        display: grid;
+        grid-template-areas:
+        'hero-picture'
+        'hero-intro';
+
+        .intro {
+        grid-area: hero-intro;
+        text-align: center;
+
+        .header {
+            font-size: 1.75rem;
+        }
+
+        .details {
+        }
+
+        .actions {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        }
+
+        picture {
+        grid-area: hero-picture;
+
+        .hero-image {
+            width: 100%;
+            object-fit: cover;
+        }
+        }
+    }
+
+    @media screen and (min-width: 776px) {
+        .hero {
+            /* display: grid; */
+            grid-template-areas: 'hero-intro hero-picture';
+            align-items: center;
+            column-gap: 1.5rem;
+            margin-inline: 2.5rem;
+            padding-inline: 2.5rem;
+
+            .intro {
+                text-align: start;
+
+                .header {
+                }
+                .details {
+                }
+                .actions {
+                }
+            }
+
+            picture {
+                .hero-image {
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .hero {
+            padding-inline: 3rem;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .hero {
+            background-color: #617000;
+            color: #e4ecd1;
+        }
+    }
+</style>
+
+<section class='hero'>
+    <div class='intro'>
+        <h2 class='header'>
+        Tender, Professional Care for Your Precious, Little Ones
+        </h2>
+
+        <div class='details'>
+        <p>
+            We&nbsp;<span>connect you&nbsp;</span>with nurturing caregivers to
+            ensure your child feels&nbsp;<span>and is&nbsp;</span>safe and loved
+            moment.
+        </p>
+        <p>
+            How can we guarantee this?&nbsp;<span
+            >By various very strict checks we put in place, hiring and
+            on-the-job.</span
+            >
+        </p>
+        </div>
+
+        <div class='actions'>
+        <a href='#' class='get-started dark-button'>Get Started</a>
+        <a href='' class='join-community light-button'>Join Our Community</a>
+        </div>
+    </div>
+
+    <picture class='hero-picture'>
+        <img
+        src='/images/kids-building.jpg'
+        alt='Hero Image'
+        class='hero-image'
+        />
+    </picture>
+</section>

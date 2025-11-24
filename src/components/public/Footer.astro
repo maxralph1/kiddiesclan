@@ -1,0 +1,154 @@
+---
+const companyName = 'KiddiesClan'
+---
+
+<style>
+    footer {
+        margin-block: 3rem;
+        margin-bottom: 3rem;
+        margin-inline: 2rem;
+        background-color: #c4eb89;
+        border-radius: 35px;
+        padding: 2rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+
+        nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.45rem;
+        row-gap: 1.25rem;
+        padding-bottom: 1rem;
+
+        a {
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        }
+
+        .copyright {
+        font-size: 0.85rem;
+
+        .company {
+            font-weight: 600;
+        }
+        }
+
+        .social {
+        padding-top: 0.85rem;
+        display: flex;
+        gap: 1rem;
+        margin-inline: auto;
+        }
+    }
+
+    @media screen and (min-width: 776px) {
+        footer {
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        /* row-gap: 1rem; */
+        margin-inline: 2.5rem;
+
+        nav {
+            /* display: flex; */
+            flex-direction: row;
+            align-items: center;
+            column-gap: 1.25rem;
+            padding-bottom: 0;
+
+            a {
+            }
+        }
+
+        .copyright {
+            .company {
+            }
+        }
+
+        .social {
+            padding-top: 0;
+            /* display: flex; */
+            justify-content: end;
+            margin-inline: unset;
+        }
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        footer {
+            background-color: #617000;
+            color: #e4ecd1;
+
+            nav {
+                a {
+                color: #e4ecd1;
+                }
+            }
+
+            .social {
+                a {
+                color: #e4ecd1;
+                }
+            }
+        }
+    }
+</style>
+
+<footer>
+    <nav id='footer-menu' class='nav-links'>
+        <a href='/'>Home</a>
+        <a href='/about/'>About</a>
+        <a href='/services/'>Services</a>
+        <a href='/process/'>Process</a>
+        <a href='/pricing/'>Pricing</a>
+        <a href='/blog/'>Blog</a>
+    </nav>
+
+    <span class='copyright'>
+        Coypright&nbsp;&copy;&nbsp;2025.&nbsp;<span class='company'
+        >{companyName}</span
+        >
+    </span>
+
+    <section class='social'>
+        <a href='' class='facebook'>
+        <svg
+            class='w-6 h-6 text-gray-800 dark:text-white'
+            aria-hidden='true'
+            xmlns='http://www.w3.org/2000/svg'
+            width='16'
+            height='16'
+            fill='currentColor'
+            viewBox='0 0 24 24'
+        >
+            <path
+            fill-rule='evenodd'
+            d='M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z'
+            clip-rule='evenodd'></path>
+        </svg>
+        </a>
+        <a href='' class='instagram'>
+        <svg
+            class='w-6 h-6 text-gray-800 dark:text-white'
+            aria-hidden='true'
+            xmlns='http://www.w3.org/2000/svg'
+            width='16'
+            height='16'
+            fill='none'
+            viewBox='0 0 24 24'
+        >
+            <path
+            fill='currentColor'
+            fill-rule='evenodd'
+            d='M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z'
+            clip-rule='evenodd'></path>
+        </svg>
+        </a>
+    </section>
+</footer>

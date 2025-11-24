@@ -1,0 +1,251 @@
+---
+const companyName = 'KiddiesClan'
+---
+
+<style>
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 1.5rem;
+
+        h1 {
+            font-size: x-large;
+        }
+
+        .navigation {
+        position: relative;
+        font-size: 0.875rem;
+
+            .links {
+                position: absolute;
+                right: 0;
+                width: 8rem;
+                background-color: #ffffff;
+                border-color: #f5f5f5;
+                padding-block: 1.5rem;
+                padding-top: 3rem;
+                border-radius: 10px;
+                box-shadow:
+                0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                /* display: flex; */
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1rem;
+
+                #main-menu.nav-links {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    .nav-link {
+                        text-decoration: none;
+                        color: black;
+                    }
+                }
+
+                .talk {
+                text-wrap: nowrap;
+                }
+
+                .close {
+                    align-self: end;
+                    padding-inline: 0.5rem;
+                    position: absolute;
+                    top: 0.5rem;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 776px) {
+        header {
+        padding-inline: 2.5rem;
+
+        .navigation {
+            .links {
+            position: relative;
+            right: unset;
+            width: unset;
+            border-color: #f5f5f5;
+            padding-block: 0;
+            padding-top: 0;
+            border-radius: unset;
+            box-shadow: unset;
+            display: flex;
+            flex-direction: row;
+
+            #main-menu.nav-links {
+                /* display: flex; */
+                flex-direction: row;
+                gap: 0.75rem;
+
+                .nav-link {
+                border-width: 1px;
+                border-style: solid;
+                border-color: #d7dbc9;
+                padding-block: 0.35rem;
+                padding-inline: 0.5rem;
+                border-radius: 25px;
+                }
+            }
+
+            .talk {
+            }
+
+            .close {
+                display: none;
+            }
+            }
+
+            .menu-icon {
+            display: none;
+            }
+        }
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        header {
+        .navigation {
+            .links {
+            #main-menu.nav-links {
+                .nav-link {
+                }
+            }
+
+            .talk {
+            }
+
+            .close {
+            }
+            }
+
+            .menu-icon {
+            }
+        }
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        header {
+            .navigation {
+                .links {
+
+                    @media  screen and (max-width: 775px) {
+                        background-color: #9b9e93;
+                    }
+                    @media  screen and (min-width: 776px) {
+                        background-color: #333b02;
+                    }
+
+                        #main-menu.nav-links {
+
+                            .nav-link {
+                                color: #f5f5f5;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+</style>
+
+<header>
+    <h1>{companyName}</h1>
+
+    <div class='navigation'>
+        <div class='links'>
+            <nav id='main-menu' class='nav-links'>
+                <a href='/' class='nav-link theme-aware-color'>Home</a>
+                <a href='/about/' class='nav-link theme-aware-color'>About</a>
+                <a href='#services' class='nav-link theme-aware-color'>Services</a>
+                <a href='/process/' class='nav-link theme-aware-color'>Process</a>
+                <a href='#pricing' class='nav-link theme-aware-color'>Pricing</a>
+                <a href='/blog/' class='nav-link theme-aware-color'>Blog</a>
+            </nav>
+            <a href='#' class='talk dark-button'>Let's Talk</a>
+            <span class='close cursor-pointer'>
+                <svg
+                class='w-6 h-6 text-gray-800 dark:text-white'
+                aria-hidden='true'
+                xmlns='http://www.w3.org/2000/svg'
+                width='24'
+                height='24'
+                fill='#ff0000'
+                viewBox='0 0 24 24'
+                >
+                <path
+                    fill-rule='evenodd'
+                    d='M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm5.757-1a1 1 0 1 0 0 2h8.486a1 1 0 1 0 0-2H7.757Z'
+                    clip-rule='evenodd'></path>
+                </svg>
+            </span>
+        </div>
+        <span class='menu-icon cursor-pointer'>
+        <svg
+            class='w-6 h-6 text-gray-800 dark:text-white'
+            aria-hidden='true'
+            xmlns='http://www.w3.org/2000/svg'
+            width='30'
+            height='30'
+            fill='none'
+            viewBox='0 0 24 24'
+        >
+            <path
+            stroke='currentColor'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
+            d='M18 6h-8m8 4H6m12 4h-8m8 4H6'></path>
+        </svg>
+        </span>
+    </div>
+</header>
+
+
+<script is:client='load'>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.innerWidth >= 776) {
+            console.log('Screen size does not need mobile navigator.')
+        } else {
+            // =========================================================
+            // HEADER NAV (with smooth slide animation)
+            // =========================================================
+            const navIcon = document.querySelector('header .menu-icon')
+            const navLinks = document.querySelector('header .navigation .links')
+            const navClose = document.querySelector('header .navigation .close')
+
+            if (navLinks) {
+            // Start hidden
+            navLinks.style.display = 'none'
+            navLinks.style.opacity = '0'
+            navLinks.style.transform = 'translateY(-10px)'
+            navLinks.style.transition = 'all 300ms ease'
+            }
+
+            function openMenu() {
+            navLinks.style.display = 'flex'
+            requestAnimationFrame(() => {
+                navLinks.style.opacity = '1'
+                navLinks.style.transform = 'translateY(0)'
+            })
+            }
+
+            function closeMenu() {
+            navLinks.style.opacity = '0'
+            navLinks.style.transform = 'translateY(-10px)'
+            setTimeout(() => {
+                navLinks.style.display = 'none'
+            }, 250)
+            }
+
+            if (navIcon) navIcon.addEventListener('click', openMenu)
+            if (navClose) navClose.addEventListener('click', closeMenu)
+        }
+    })
+</script>

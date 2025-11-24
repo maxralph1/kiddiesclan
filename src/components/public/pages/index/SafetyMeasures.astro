@@ -1,0 +1,185 @@
+---
+
+---
+
+<style>
+    .safety-measures {
+        margin-top: 4rem;
+
+        h2,
+        p {
+            text-align: center;
+            padding-inline: 3rem;
+        }
+
+        .more-details {
+            display: grid;
+            gap: 0.5rem;
+
+            picture {
+            }
+
+            ul {
+            list-style: none;
+            padding-left: 0;
+            background-color: #c4eb8994;
+            padding: 1rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+
+            li {
+                background: url('/images/kids-building.jpg') no-repeat;
+                background-size: 1rem 1rem;
+                padding-left: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+            }
+
+            .first-aid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+
+            .details {
+                background-color: #ebd45193;
+                padding-block: 1rem;
+                padding-inline: 1.5rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 12.5rem;
+                /* min-width: 12rem; */
+                border-radius: 15px;
+                text-align: center;
+            }
+
+            .image {
+                height: 5rem;
+                /* width: 12.5rem; */
+                width: 100%;
+                padding: 0;
+
+                img {
+                height: 100%;
+                width: 100%;
+                }
+            }
+            }
+        }
+    }
+
+    @media screen and (min-width: 776px) {
+        .safety-measures {
+            h2,
+            p {
+            }
+
+            .more-details {
+                /* display: grid; */
+                grid-template-columns: 4fr 4fr 3fr;
+                align-items: center;
+                gap: 1.5rem;
+
+                picture {
+                }
+
+                ul {
+                    li {
+                    }
+                }
+
+                .first-aid {
+                    .details {
+                    width: unset;
+                    }
+
+                    .image {
+                    img {
+                    }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .safety-measures {
+            color: #e4ecd1;
+            
+            .more-details {
+                ul {
+                    background-color: #4a6b3e94;
+                }
+
+                .first-aid {
+                    .details {
+                    background-color: #61700093;
+                    }
+                }
+            }
+        }
+    }
+</style>
+
+<section class='safety-measures'>
+    <h2>Safety Measures</h2>
+
+    <p>
+    We know that nothing is more important than your child's (children's)
+    safety and well-being. That's why we've implemented rigorous measures to
+    ensure every nanny on our platform is qualified.
+    </p>
+
+    <div class='separator'></div>
+
+    <section class='more-details'>
+    <picture>
+        <source
+        srcset='small.jpg 480w, /images/kids-building.jpg 800w, /images/kids-building.jpg 1200w'
+        sizes='(max-width: 600px) 400px, 800px'
+        type='image/jpeg'
+        />
+        <img
+        src='/images/kids-building.jpg'
+        alt='ChildCare Philosophy Image 3'
+        />
+    </picture>
+
+    <ul>
+        <li>Comprehensive background checks</li>
+        <li>Verified certifications</li>
+        <li>Continuous safety education</li>
+        <li>Verified reviews and ratings</li>
+        <li>Secure and easy communication</li>
+        <li>And other in-house measures</li>
+    </ul>
+
+    <div class='first-aid'>
+        <div class='details'>
+        <svg
+            class='w-6 h-6 text-gray-800 dark:text-white'
+            aria-hidden='true'
+            xmlns='http://www.w3.org/2000/svg'
+            width='24'
+            height='24'
+            fill='#e9d451'
+            viewBox='0 0 24 24'
+        >
+            <path
+            fill-rule='evenodd'
+            d='M8 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1h2a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2Zm6 1h-4v2H9a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2h-1V4Zm-6 8a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Zm1 3a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z'
+            clip-rule='evenodd'></path>
+        </svg>
+        <span>First-aid and CPR-certified Babycare</span>
+        </div>
+        <div class='image'>
+        <img
+            src='/images/kids-building.jpg'
+            alt='ChildCare Philosophy Image 3'
+        />
+        </div>
+    </div>
+    </section>
+</section>

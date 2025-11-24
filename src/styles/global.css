@@ -1,0 +1,111 @@
+/* Utility */
+.dark-button {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #f5f5f5;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 35px;
+    text-decoration: none;
+    text-align: center;
+    padding-inline: 0.7rem;
+    padding-block: 0.3rem;
+    transition: all 1s ease-in-out;
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+    &.get-started {
+        padding-block: 0.45rem;
+        font-size: 0.87rem;
+        font-weight: 700;
+    }
+}
+
+.light-button {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #f5f5f5;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 35px;
+    text-decoration: none;
+    text-align: center;
+    padding-inline: 0.7rem;
+    padding-block: 0.3rem;
+    transition: all 1s ease-in-out;
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+    &.join-community {
+        padding-block: 0.45rem;
+        font-size: 0.87rem;
+        font-weight: 700;
+    }
+}
+
+.transparent-button {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #f5f5f5;
+    color: #000000;
+    border-radius: 35px;
+    text-decoration: none;
+    text-align: center;
+    padding-inline: 0.7rem;
+    padding-block: 0.3rem;
+    transition: all 1s ease-in-out;
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+    &.get-started {
+        padding-block: 0.45rem;
+        font-size: 0.87rem;
+        font-weight: 700;
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.separator {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e4e7db;
+    margin-block: 1.25rem;
+}
+/* End of Utility */
+
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #333b02;
+        color: #eee;
+    }
+
+    .theme-aware-color { color: #f5f5f5; }
+
+    .dark-button {
+        border-color: #f5f5f569;
+        background-color: #333b02;
+        color: #e4ecd1;
+    }
+
+    .light-button {
+        border-color: #f5f5f569;
+        background-color: #e4ecd1;
+        color: #333b02;
+    }
+}

@@ -1,0 +1,153 @@
+---
+const companyName = 'KiddiesClan'
+---
+
+<style>
+    .nurturing-little-ones {
+        margin-top: 4rem;
+
+        h2 {
+            text-align: center;
+            padding-inline: 3rem;
+        }
+
+        .details {
+            text-align: center;
+        }
+
+        .nurture-services {
+            display: grid;
+            grid-template-areas:
+            'nurture-services-picture'
+            'nurture-services-list';
+
+            picture {
+                grid-area: nurture-services-picture;
+            }
+            ul {
+                grid-area: nurture-services-list;
+                list-style: none;
+                padding-left: 0;
+
+                li {
+                    background-size: 1rem 1rem;
+                    padding-left: 1.5rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                li:first-child {
+                    background: url('/images/kids-building.jpg') no-repeat;
+                    background-size: 1rem 1rem;
+                    padding-left: 1.5rem;
+                    margin-bottom: 0.5rem;
+                }
+                li:nth-child(2) {
+                    background: url('/images/kids-building.jpg') no-repeat;
+                    background-size: 1rem 1rem;
+                    padding-left: 1.5rem;
+                    margin-bottom: 0.5rem;
+                }
+                li:nth-child(3) {
+                    background: url('/images/kids-building.jpg') no-repeat;
+                    background-size: 1rem 1rem;
+                    padding-left: 1.5rem;
+                    margin-bottom: 0.5rem;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 776px) {
+        .nurturing-little-ones {
+            h2 {
+            }
+
+            .details {
+            }
+
+            .nurture-services {
+            display: grid;
+            grid-template-areas: 'nurture-services-picture nurture-services-list';
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            column-gap: 3rem;
+
+            picture {
+            }
+            ul {
+                li {
+                }
+                li:first-child {
+                }
+                li:nth-child(2) {
+                }
+                li:nth-child(3) {
+                }
+            }
+            }
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .nurturing-little-ones {
+            color: #e4ecd1;
+        }
+    }
+</style>
+
+<section class='nurturing-little-ones'>
+    <h2>Dedicated to Nurturing Your Little ones with Expert Care</h2>
+
+    <div class='details'>
+    <p>
+        At {companyName}, we are committed to providing more than just baby
+        care — we deliver peace of mind for parents and a nurturing
+        environment for children. Our team of professional caregivers are
+        carefully selected based on their experience, training and genuine
+        love for children.
+    </p>
+
+    <p>Book a session with us to learn the details of this.</p>
+    </div>
+
+    <div class='separator'></div>
+
+    <div class='nurture-services'>
+    <picture>
+        <source
+        srcset='small.jpg 480w, /images/kids-building.jpg 800w, /images/kids-building.jpg 1200w'
+        sizes='(max-width: 600px) 400px, 800px'
+        type='image/jpeg'
+        />
+        <img
+        src='/images/kids-building.jpg'
+        alt='ChildCare Philosophy Image 3'
+        />
+    </picture>
+
+    <ul>
+        <li>
+        <h3>Newborn and Infant Care:</h3>
+        <p>
+            Helping parents/guardinas with feeding schedules, safe sleep
+            practices and early development milestones.
+        </p>
+        </li>
+        <li>
+        <h3>Toddler Engagement:</h3>
+        <p>
+            Promoting motor skills, creativity and cognitive growth through
+            fun and educational activities.
+        </p>
+        </li>
+        <li>
+        <h3>Flexible Care Options:</h3>
+        <p>
+            Whether you need a full-time caregiver, part-time-support,
+            last-minute babycaring, we tailor our services to fill your
+            family's unique needs.
+        </p>
+        </li>
+    </ul>
+    </div>
+</section>
