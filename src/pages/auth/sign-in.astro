@@ -1,0 +1,96 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<style>
+    main {
+        padding-inline: 1.5rem;
+        padding-block: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h2 {
+            font-size: 1.25rem;
+            text-align: center;
+        }
+
+        .form {
+            padding-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.25rem;
+                width: 300px;
+
+                .input-field {
+                    display: flex;
+                    flex-direction: column;
+
+                    span {
+                        padding-inline: 1rem;
+                        padding-bottom: 0.35rem;
+                        font-size: 0.75rem;
+                    }
+
+                    input {
+                        border-radius: 30px;
+                        width: 300px;
+                        padding-block: 0.45rem;
+                        padding-inline: 1rem;
+                        background-color: inherit;
+                        color: inherit;
+                    }
+                }
+
+                button {
+                    align-self: end;
+                    margin-top: 1rem;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 776px) {
+        main {
+            padding-inline: 2.5rem;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        main { color: #e4ecd1; }
+
+        a { text-decoration: none; color: #e4ecd1; }
+
+    }
+</style>
+
+<Layout>
+    <main>
+        <h2>Sign In</h2>
+
+        <section class="form">
+            <form action="">
+                <div class="input-field">
+                    <span>Email Address</span>
+                    <input type="email" name="email" id="email" placeholder="Email">
+                </div>
+
+                <div class="input-field">
+                    <span>Password</span>
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+
+                <button type="submit" class="dark-button">Sign In</button>
+            </form>
+        </section>
+    </main>
+</Layout>

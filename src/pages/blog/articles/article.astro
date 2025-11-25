@@ -1,0 +1,109 @@
+---
+import Layout from '../../../layouts/Layout.astro'
+import Header from '../../../components/public/Header.astro'
+import Footer from '../../../components/public/Footer.astro'
+const companyName = 'KiddiesClan'
+---
+
+<style>
+    main {
+        padding-inline: 1.5rem;
+        padding-block: 1rem;
+
+        h2 {
+            font-size: 1.25rem;
+        }
+
+        .author {
+            display: flex;
+            align-items: center; 
+
+            .by {
+                font-size: 0.75rem;
+            }
+
+            .author-info {
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+                background-color: #e4ecd1;
+                padding-inline-start: 0.5rem;
+                padding-inline-end: 1rem;
+                padding-block: 0.2rem; 
+                border-radius: 35px;
+
+                img {
+                    width: 30px; 
+                    height: 30px;
+                    border-radius: 50px;;
+                }
+
+                span {
+                    color: #617000;
+                    font-size: 0.95rem;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .publish-date {
+            padding-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .content {
+
+            picture {
+                img {
+                    height: 50vh;
+                }
+            }
+
+            article {
+                padding-top: 1.75rem;
+            }
+        }
+    }
+
+    @media screen and (min-width: 776px) {
+        main {
+            padding-inline: 2.5rem; 
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        main { color: #e4ecd1; }
+
+        a { text-decoration: none; color: #e4ecd1; }
+
+    }
+</style>
+
+<Layout>
+    <main>
+        <h2>Blog Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa natus laborum aspernatur magnam temporibus eius. Aspernatur perspiciatis voluptas nisi amet.</h2>
+        <p class="author">
+            <span class="by">by</span>&nbsp;
+            <span class="author-info">
+                <img src="/images/kids-building.jpg" alt="">
+                <span>Author Name</span>
+            </span>
+        </p>
+
+        <p class="publish-date">2 days ago</p>
+
+        <section class="content">
+            <picture class=''>
+                <img
+                    src='/images/kids-building.jpg'
+                    alt='Article Image'
+                    class='article-image'
+                />
+            </picture>
+
+            <article>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui, beatae.
+            </article>
+        </section>
+    </main>
+</Layout>

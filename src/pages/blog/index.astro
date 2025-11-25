@@ -1,0 +1,269 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Header from '../../components/public/Header.astro'
+import Footer from '../../components/public/Footer.astro'
+const companyName = 'KiddiesClan'
+---
+
+<style>
+    a { text-decoration: none; color: #000000; }
+    main {
+        /* padding-top: 2rem; */
+        padding-inline: 1.5rem;
+
+        h2 {
+            font-size: 2rem;
+            /* padding-bottom: 1rem; */
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .articles {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-block: 2rem;
+
+            article {
+                position: relative;
+                height: 100%;
+
+                picture {
+                    img { height: 100%; }
+                }
+
+                .details {
+                    /* height: 100%; */
+                    position: absolute;
+                    bottom: 1rem;
+                    padding-inline: 1.5rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    gap: 0;
+
+                    /* .article-header, .category { margin-block: 0; } */
+
+                    .article-header {
+                        order: 2;
+                        font-size: 1.35rem;
+                        font-weight: 700;
+                        color: #e4ecd1;
+                    }
+
+                    .category {
+                        order: 1;
+                        border-width: 1px; 
+                        border-style: solid;
+                        border-color: #e4ecd1; 
+                        background-color: #e4ecd1;
+                        color:#617000;
+                        font-size: 0.75rem;
+                        font-weight: 700;
+                        border-radius: 15px;
+                        padding-inline: 0.5rem;
+                    }
+
+                    .article-footer {
+                        order: 3;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+
+                        a {
+                            font-size: 0.8rem;
+                            font-weight: 700;
+                            color: #e4ecd1;
+                            padding-block: 0.25rem;
+                        }
+
+                        .author-info {
+                            display: flex;
+                            align-items: center;
+                            gap: 0.25rem;
+                            background-color: #e4ecd1;
+                            padding-inline: 0.5rem;
+                            padding-block: 0.2rem; 
+                            border-radius: 15px;
+
+                            img {
+                                width: 20px; 
+                                height: 20px;
+                                border-radius: 50px;;
+                            }
+
+                            span {
+                                color: #617000;
+                                font-size: 0.75rem;
+                            }
+                        }
+                    }
+                }
+
+                &.featured-article-1 {
+                    height: 60vh;
+                }
+
+                &.featured-article-2, &.featured-article-3 {
+                    height: 35.5vh;
+                    padding-block: 0;
+                }
+            }
+        }
+
+        .more-articles {
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            margin-inline: auto;
+            font-weight: 600;
+            text-align: center;
+            
+            a {
+                color:#e4ecd1;
+                font-size: 0.85rem;
+            }
+        }
+    }
+
+    @media screen and (min-width: 776px) {
+        main {
+            padding-inline: 2.5rem;
+
+            .articles {
+                /* display: grid; */
+                grid-template-columns: 3fr 2fr;
+                grid-template-areas: 
+                    "article-1 article-2"
+                    "article-1 article-3";
+                align-items: center;
+
+                article {
+                    position: relative;
+                    height: 100%;
+
+                    picture {}
+
+                    .details {
+
+                        .article-header {
+                            font-size: 1rem;
+                        }
+
+                        .category {
+                            font-size: 0.65rem;
+                        }
+
+                        .article-footer {
+                            order: 3;
+
+                            a {
+                                font-size: 0.8rem;
+                                font-weight: 700;
+                            }
+
+                            .author-info {
+
+                                img {
+                                }
+
+                                span {
+                                }
+                            }
+                        }
+                    }
+
+                    &.featured-article-1 {
+                        grid-area: article-1;
+                        height: 80vh;
+                    }
+
+                    &.featured-article-2, &.featured-article-3 {
+                        height: 35.5vh;
+                    }
+
+                    &.featured-article-2 { grid-area: article-2; }
+                    &.featured-article-3 { grid-area: article-3; }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+    }
+
+    @media (prefers-color-scheme: dark) {
+        main { color: #e4ecd1; }
+
+        a { text-decoration: none; color: #e4ecd1; }
+
+    }
+</style>
+
+<Layout title="Blog - KiddiesClan" description="Read the latest articles and updates from KiddiesClan, your trusted babycare service provider. Stay informed with tips, news, and insights on childcare.">
+    <main>
+        <h2>Blog</h2>
+        <p>Welcome to the KiddiesClan blog! Here you'll find the latest articles, tips, and updates on babycare and parenting. Stay tuned for expert advice and insights to help you navigate the wonderful journey of parenthood.</p>
+
+        <section class="articles">
+            <article class="featured-article-1">
+                <picture class=''>
+                    <img
+                        src='/images/kids-building.jpg'
+                        alt='Article 1 Image'
+                        class='article-1-image'
+                    />
+                </picture>
+                <div class="details">
+                    <h3 class="article-header">Blog Post Title Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias, excepturi!</h3>
+                    <p class="category">Feeding</p>
+                    <div class="article-footer">
+                        <a href="#" class="transparent-button">Read article</a>
+                        <span class="author-info">
+                            <img src="/images/kids-building.jpg" alt="">
+                            <span>Author Name</span>
+                        </span>
+                    </div>
+                </div>
+            </article>
+            <article class="featured-article-2">
+                <picture class=''>
+                    <img
+                        src='/images/kids-building.jpg'
+                        alt='Article 1 Image'
+                        class='article-1-image'
+                    />
+                </picture>
+                <div class="details">
+                    <h3 class="article-header">Blog Post Title Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias, excepturi!</h3>
+                    <p class="category">Feeding</p>
+                    <div class="article-footer">
+                        <a href="#" class="transparent-button">Read article</a>
+                    </div>
+                </div>
+            </article>
+            <article class="featured-article-3">
+                <picture class=''>
+                    <img
+                        src='/images/kids-building.jpg'
+                        alt='Article 1 Image'
+                        class='article-1-image'
+                    />
+                </picture>
+                <div class="details">
+                    <h3 class="article-header">Blog Post Title Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias, excepturi!</h3>
+                    <p class="category">Feeding</p>
+                    <div class="article-footer">
+                        <a href="#" class="transparent-button talk">Read article</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <div class="more-articles">
+            <a href="/blog/articles/" class="dark-button talk">See more articles</a>
+        </div>
+    </main>
+</Layout>

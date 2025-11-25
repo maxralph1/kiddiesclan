@@ -1,0 +1,54 @@
+---
+/* No front‑matter needed */
+---
+
+<div id='editor-container'></div>
+
+<!-- TinyMCE CDN (replace with local files if you prefer) -->
+<script
+  src='https://cdn.tiny.cloud/1/r2zcrpw2kzhek2k9up9bxzythz72440g92ikde49v3flq3b5/tinymce/6/tinymce.min.js'
+  referrerpolicy='origin'></script>
+
+<script client:load>
+  document.addEventListener('DOMContentLoaded', () => {
+    tinymce.init({
+      selector: '#editor-container',
+      height: 400,
+      menubar: true,
+      plugins: [
+        'advlist',
+        'autolink',
+        'lists',
+        'link',
+        'image',
+        'charmap',
+        'preview',
+        'anchor',
+        'searchreplace',
+        'visualblocks',
+        'code',
+        'fullscreen',
+        'insertdatetime',
+        'media',
+        'table',
+        'paste',
+        'help',
+        'wordcount',
+      ],
+      toolbar: [
+        'undo redo | formatselect | bold italic backcolor |',
+        'alignleft aligncenter alignright alignjustify |',
+        'bullist numlist outdent indent | removeformat | help',
+      ].join(' '),
+      // optional: fire a custom event on change
+      setup: (editor) => {
+        editor.on('Change KeyUp', () => {
+          const ev = new CustomEvent('tinymce-change', {
+            detail: { html: editor.getContent() },
+          })
+          window.dispatchEvent(ev)
+        })
+      },
+    })
+  })
+</script>

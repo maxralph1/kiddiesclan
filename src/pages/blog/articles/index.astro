@@ -1,0 +1,229 @@
+---
+import Layout from '../../../layouts/Layout.astro'
+import Header from '../../../components/public/Header.astro'
+import Footer from '../../../components/public/Footer.astro'
+const companyName = 'KiddiesClan'
+---
+
+<style>
+    main {
+        padding-inline: 1.5rem;
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        .articles {
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+
+            article {
+                position: relative;
+                height: 50vh;
+
+                picture {
+                    img { height: 100%; }
+                }
+
+                .details {
+                    /* height: 100%; */
+                    position: absolute;
+                    bottom: 1rem;
+                    padding-inline: 1.5rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    gap: 0;
+
+                    /* .article-header, .category { margin-block: 0; } */
+
+                    .article-header {
+                        order: 2;
+                        font-size: 1.35rem;
+                        font-weight: 700;
+                        color: #e4ecd1;
+                    }
+
+                    .category {
+                        order: 1;
+                        border-width: 1px; 
+                        border-style: solid;
+                        border-color: #e4ecd1; 
+                        background-color: #e4ecd1;
+                        color:#617000;
+                        font-size: 0.75rem;
+                        font-weight: 700;
+                        border-radius: 15px;
+                        padding-inline: 0.5rem;
+                    }
+
+                    .article-footer {
+                        order: 3;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+
+                        a {
+                            font-size: 0.8rem;
+                            font-weight: 700;
+                            color: #e4ecd1;
+                            padding-block: 0.25rem;
+                        }
+
+                        .author-info {
+                            display: flex;
+                            align-items: center;
+                            gap: 0.25rem;
+                            background-color: #e4ecd1;
+                            padding-inline: 0.5rem;
+                            padding-block: 0.2rem; 
+                            border-radius: 15px;
+
+                            img {
+                                width: 20px; 
+                                height: 20px;
+                                border-radius: 50px;
+                            }
+
+                            span {
+                                color: #617000;
+                                font-size: 0.75rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 776px) {
+        main {
+            padding-inline: 2.5rem;
+
+            .articles {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+
+                article {
+                    position: relative;
+                    /* height: 100%; */
+                    /* height: 50vh; */
+
+                    picture {}
+
+                    .details {
+
+                        .article-header {
+                            font-size: 1rem;
+                        }
+
+                        .category {
+                            font-size: 0.65rem;
+                        }
+
+                        .article-footer {
+                            order: 3;
+
+                            a {
+                                font-size: 0.8rem;
+                                font-weight: 700;
+                            }
+
+                            .author-info {
+
+                                img {
+                                }
+
+                                span {
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+    }
+
+    @media (prefers-color-scheme: dark) {
+        main { color: #e4ecd1; }
+
+        a { text-decoration: none; color: #e4ecd1; }
+
+    }
+</style>
+
+<Layout title="Blog Articles - {companyName}" description="Read the latest articles and updates from {companyName}." >
+    <main>
+        <h2>Blog Articles</h2>
+
+        <section class="articles">
+            <article class="">
+                <picture class=''>
+                    <img
+                        src='/images/kids-building.jpg'
+                        alt='Article 1 Image'
+                        class='article-1-image'
+                    />
+                </picture>
+                <div class="details">
+                    <h3 class="article-header">Blog Post Title Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias, excepturi!</h3>
+                    <p class="category">Feeding</p>
+                    <div class="article-footer">
+                        <a href="#" class="transparent-button">Read article</a>
+                        <span class="author-info">
+                            <img src="/images/kids-building.jpg" alt="">
+                            <span>Author Name</span>
+                        </span>
+                    </div>
+                </div>
+            </article>
+            <article class="">
+                <picture class=''>
+                    <img
+                        src='/images/kids-building.jpg'
+                        alt='Article 1 Image'
+                        class='article-1-image'
+                    />
+                </picture>
+                <div class="details">
+                    <h3 class="article-header">Blog Post Title Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias, excepturi!</h3>
+                    <p class="category">Feeding</p>
+                    <div class="article-footer">
+                        <a href="#" class="transparent-button">Read article</a>
+                        <span class="author-info">
+                            <img src="/images/kids-building.jpg" alt="">
+                            <span>Author Name</span>
+                        </span>
+                    </div>
+                </div>
+            </article>
+            <article class="">
+                <picture class=''>
+                    <img
+                        src='/images/kids-building.jpg'
+                        alt='Article 1 Image'
+                        class='article-1-image'
+                    />
+                </picture>
+                <div class="details">
+                    <h3 class="article-header">Blog Post Title Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias, excepturi!</h3>
+                    <p class="category">Feeding</p>
+                    <div class="article-footer">
+                        <a href="#" class="transparent-button">Read article</a>
+                        <span class="author-info">
+                            <img src="/images/kids-building.jpg" alt="">
+                            <span>Author Name</span>
+                        </span>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+</Layout>

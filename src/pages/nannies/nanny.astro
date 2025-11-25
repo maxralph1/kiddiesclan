@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Header from '../../components/public/Header.astro'
+import Footer from '../../components/public/Footer.astro'
+const companyName = 'KiddiesClan'
+---
+
+<style>
+    main {
+        padding-inline: 1.5rem;
+        padding-block: 1rem;
+
+        h2 {
+            font-size: 1.25rem;
+        }
+
+        .nanny-info {
+            padding-top: 1rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+            /* width: 100%; */
+
+            .nanny-photo {
+                img {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50px;
+                }
+            }
+
+            .details {
+                p {
+                    span  { font-weight: 700; }
+                }
+            }
+        }
+
+        .bio {
+            padding-top: 1.25rem;
+        }
+    }
+
+    @media screen and (min-width: 776px) {
+        main {
+            padding-inline: 2.5rem;
+
+            .nanny-info {
+                text-align: start;
+                /* display: flex; */
+                flex-direction: row;
+                justify-content: flex-start; 
+                flex-wrap: wrap;
+                gap: 2rem;
+
+                .nanny-photo {
+                    img {
+                        width: 150px;
+                        height: 150px;
+                        border-radius: 50px;
+                    }
+                }
+
+                .details {
+                    p {
+                        span  { font-weight: 700; }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        main { color: #e4ecd1; }
+
+        a { text-decoration: none; color: #e4ecd1; }
+
+    }
+</style>
+
+<Layout>
+    <main>
+        <h2 class="name">Nanny's Name</h2>
+
+        <section class="nanny-info">
+            <picture class='nanny-photo'>
+                <img
+                    src='/images/kids-building.jpg'
+                    alt='Nanny Image'
+                    class='nanny-image'
+                />
+            </picture>
+
+            <section class="details">
+                <p>Gender:&nbsp;<span>Female</span></p>
+                <p>Date of Birth:&nbsp;<span>25 Jan., 2025</span></p>
+                <p>Phone:&nbsp;<span>+2348021234567</span></p>
+                <p>Email:&nbsp;<span>test@email.com</span></p>
+            </section>
+        </section>
+
+        <section class="bio">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique autem eum totam? Maxime, magni blanditiis?
+        </section>
+    </main>
+</Layout>

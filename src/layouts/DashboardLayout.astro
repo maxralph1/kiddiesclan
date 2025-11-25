@@ -1,0 +1,52 @@
+---
+import Layout from './Layout.astro'
+---
+
+<style>
+    .dashboard-nav {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 1rem;
+        margin-inline: 1.5rem;
+        border-block: 1px solid #e4ecd1;
+        padding-block: 0.25rem;
+
+        a {
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+    }
+
+    @media screen and (min-width: 776px) {
+        .dashboard-nav {
+            /* display: flex; */
+            margin-inline: 2.5rem;
+            margin-top: 1rem;
+
+            a {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .dashboard-nav {
+
+            a {
+                color: #e4ecd1;
+            }
+        }
+    }
+</style>
+
+<Layout>
+    <nav class="dashboard-nav">
+        <a href="/dashboard/blog/articles/" class="dark-button">Articles</a>
+        <a href="/dashboard/blog/articles/create/" class="dark-button">Publish Article</a>
+        <a href="/dashboard/profile/" class="dark-button">Profile</a>
+    </nav>
+
+    <slot />
+</Layout>

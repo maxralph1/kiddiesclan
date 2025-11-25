@@ -1,4 +1,6 @@
 ---
+import Header from '../components/public/Header.astro'
+import Footer from '../components/public/Footer.astro'
 import '../styles/global.css';
 ---
 
@@ -12,7 +14,9 @@ import '../styles/global.css';
 		<title>Astro Basics</title>
 	</head>
 	<body>
-		<slot />
+		<Header />
+			<slot />
+		<Footer />
 	</body>
 </html>
 
@@ -25,11 +29,13 @@ import '../styles/global.css';
 		margin: 0;
 		width: 100%;
 		min-width: 315px;
-		min-height: 100%;
+		min-height: 100vh;
 		box-sizing: border-box;
 		font-family: 'Montserrat', sans-serif;
 		/* font-family: 'Elms Sans', sans-serif; */
 		font-optical-sizing: auto;
 		font-style: normal;
+		display: flex;
+		flex-direction: column;
 	}
 </style>

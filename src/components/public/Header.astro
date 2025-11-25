@@ -1,13 +1,17 @@
 ---
 const companyName = 'KiddiesClan'
+const authenticated = true
 ---
 
 <style>
+    .text-danger { color: #ff0000; }
+    .text-success { color: #00ff00; }
     header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-inline: 1.5rem;
+        
 
         h1 {
             font-size: x-large;
@@ -16,6 +20,7 @@ const companyName = 'KiddiesClan'
         .navigation {
         position: relative;
         font-size: 0.875rem;
+        z-index: 1;
 
             .links {
                 position: absolute;
@@ -162,13 +167,29 @@ const companyName = 'KiddiesClan'
         <div class='links'>
             <nav id='main-menu' class='nav-links'>
                 <a href='/' class='nav-link theme-aware-color'>Home</a>
-                <a href='/about/' class='nav-link theme-aware-color'>About</a>
-                <a href='#services' class='nav-link theme-aware-color'>Services</a>
-                <a href='/process/' class='nav-link theme-aware-color'>Process</a>
-                <a href='#pricing' class='nav-link theme-aware-color'>Pricing</a>
+                <a href='/#services' class='nav-link theme-aware-color'>Services</a>
+                <a href='/#pricing' class='nav-link theme-aware-color'>Pricing</a>
+                <!-- <a href='/about/' class='nav-link theme-aware-color'>About</a> -->
                 <a href='/blog/' class='nav-link theme-aware-color'>Blog</a>
+                { authenticated && (
+                    <a href='/dashboard' class='nav-link theme-aware-color'>Dashboard</a>
+                ) }
             </nav>
-            <a href='#' class='talk dark-button'>Let's Talk</a>
+            <a href='mailto:kiddiesclan@gmail.com' class='talk dark-button'>Let's Talk</a>
+            <span>
+                { authenticated ? (
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white text-danger" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M8 10V7a4 4 0 1 1 8 0v3h1a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h1Zm2-3a2 2 0 1 1 4 0v3h-4V7Zm2 6a1 1 0 0 1 1 1v3a1 1 0 1 1-2 0v-3a1 1 0 0 1 1-1Z" clip-rule="evenodd"/>
+                    </svg>
+                ) : (
+                    <a href="/auth/sign-in/">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white text-success" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M15 7a2 2 0 1 1 4 0v4a1 1 0 1 0 2 0V7a4 4 0 0 0-8 0v3H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2V7Zm-5 6a1 1 0 0 1 1 1v3a1 1 0 1 1-2 0v-3a1 1 0 0 1 1-1Z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                ) }
+
+            </span>
             <span class='close cursor-pointer'>
                 <svg
                 class='w-6 h-6 text-gray-800 dark:text-white'

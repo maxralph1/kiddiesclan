@@ -1,0 +1,135 @@
+---
+import DashboardLayout from '../../../layouts/DashboardLayout.astro'
+---
+
+<style>
+    main {
+        padding-inline: 1.5rem;
+        padding-block: 1rem;
+
+        h2 {
+            font-size: 1.25rem;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .nanny-photo {
+                padding-bottom: 1.5rem;
+                img {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50px;
+                }
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.25rem;
+                width: 300px;
+
+                .input-field {
+                    display: flex;
+                    flex-direction: column;
+
+                    span {
+                        padding-inline: 1rem;
+                        padding-bottom: 0.35rem;
+                        font-size: 0.75rem;
+                    }
+
+                    input {
+                        border-radius: 30px;
+                        width: 300px;
+                        padding-block: 0.45rem;
+                        padding-inline: 1rem;
+                        background-color: inherit;
+                        color: inherit;
+                    }
+                }
+
+                .input-field {
+                    display: flex;
+                    flex-direction: column;
+
+                    span {
+                        padding-inline: 1rem;
+                        padding-bottom: 0.35rem;
+                        font-size: 0.75rem;
+                    }
+    
+                    textarea {
+                        border-radius: 30px;
+                        width: 300px;
+                        padding-block: 0.45rem;
+                        padding-inline: 1rem;
+                        background-color: inherit;
+                        color: inherit;
+                    }
+                }
+
+
+                button {
+                    align-self: end;
+                    margin-top: 1rem;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 776px) {
+        main {
+            padding-inline: 2.5rem;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        main { color: #e4ecd1; }
+
+        a { text-decoration: none; color: #e4ecd1; }
+
+    }
+</style>
+
+<DashboardLayout>
+    <main>
+        <h2>Profile</h2>
+
+        <section class="form">
+            <picture class='nanny-photo'>
+                <img
+                    src='/images/kids-building.jpg'
+                    alt='Nanny Image'
+                    class='nanny-image'
+                />
+            </picture>
+            <form action="">
+                <div class="input-field">
+                    <span>Full Name</span>
+                    <input type="text" name="name" id="name" placeholder="Name">
+                </div>
+                <div class="input-field">
+                    <span>Email Address</span>
+                    <input type="email" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="input-field">
+                    <span>Phone</span>
+                    <input type="text" name="phone" id="phone" placeholder="Phone">
+                </div>
+                <div class="input-field">
+                    <span>Bio</span>
+                    <textarea name="" id="" cols="3" rows="2" placeholder="Talk about yourself"></textarea>
+                </div>
+
+                <button type="submit" class="dark-button">Update</button>
+            </form>
+        </section>
+    </main>
+</DashboardLayout>

@@ -1,0 +1,134 @@
+---
+import DashboardLayout from '../../../../layouts/DashboardLayout.astro'
+import TinyMCE from '../../../../components/TinyMCE.astro';
+---
+
+<style>
+    main {
+        padding-inline: 1.5rem;
+        padding-block: 1rem;
+
+        h2 {
+            font-size: 1.25rem;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .nanny-photo {
+                padding-bottom: 1.5rem;
+                img {
+                    width: 300px;
+                    height: 300px;
+                    border-radius: 50px;
+                }
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.25rem;
+                width: 100%;
+
+                .input-field {
+                    display: flex;
+                    flex-direction: column;
+
+                    span {
+                        padding-inline: 1rem;
+                        padding-bottom: 0.35rem;
+                        font-size: 0.75rem;
+                    }
+
+                    input {
+                        border-radius: 30px;
+                        width: 300px;
+                        padding-block: 0.45rem;
+                        padding-inline: 1rem;
+                        background-color: inherit;
+                        color: inherit;
+                    }
+                }
+
+                .input-field {
+                    display: flex;
+                    flex-direction: column;
+
+                    span {
+                        padding-inline: 1rem;
+                        padding-bottom: 0.35rem;
+                        font-size: 0.75rem;
+                    }
+    
+                    textarea {
+                        border-radius: 30px;
+                        min-width: 315px;
+                        padding-block: 0.45rem;
+                        padding-inline: 1rem;
+                        background-color: inherit;
+                        color: inherit;
+                    }
+                }
+
+
+                button {
+                    /* width: 300px; */
+                    align-self: center;
+                    margin-top: 1rem;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 776px) {
+        main {
+            padding-inline: 2.5rem;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        main { color: #e4ecd1; }
+
+        a { text-decoration: none; color: #e4ecd1; }
+
+    }
+</style>
+
+
+<DashboardLayout>
+    <main>
+        <h2>Profile</h2>
+
+        <section class="form">
+            <picture class='nanny-photo'>
+                <img
+                    src='/images/kids-building.jpg'
+                    alt='Nanny Image'
+                    class='nanny-image'
+                />
+            </picture>
+            <form action="">
+                <div class="input-field">
+                    <span>Category</span>
+                    <input type="text" name="category" id="category" placeholder="Category">
+                </div>
+                <div class="input-field">
+                    <span>Topic</span>
+                    <textarea name="" id="" cols="3" rows="2" placeholder="Topic of the article"></textarea>
+                </div>
+                <div class="input-field">
+                    <span>Content</span>
+                    <TinyMCE />
+                </div>
+
+                <button type="submit" class="dark-button">Publish</button>
+            </form>
+        </section>
+    </main>
+</DashboardLayout>
